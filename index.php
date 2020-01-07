@@ -20,18 +20,18 @@
 
 <?php
 	$getid = $_POST["id"];
-	$host = "localhost";
+	$host = "172.16.3.3";
 	$user = "root";
-	$pass = "";
+	$pass = "dbJSEs3rv3r2019";
 	$db   = "dbsertifikat";
 	//buat koneksi dan ambil database		
-	$koneksi = mysql_connect($host, $user, $pass) or die("Koneksi error");
-	$db = mysql_select_db($db) or die("database tidak ditemukan");
+	$koneksi = mysqli_connect($host, $user, $pass) or die("Koneksi error");
+	$db = mysqli_select_db($db) or die("database tidak ditemukan");
 
 	//ambil POST dan sesuaikan dengan database
-	$ambildb = mysql_query("SELECT nama FROM peserta WHERE no_registrasi LIKE '%$getid%' OR nama LIKE '%$getid%'");
+	$ambildb = mysqli_query("SELECT nama FROM peserta WHERE no_registrasi LIKE '%$getid%' OR nama LIKE '%$getid%'");
 	
-	while ($row = mysql_fetch_assoc($ambildb)){
+	while ($row = mysqli_fetch_assoc($ambildb)){
 		$hasil = $row['nama'];
 		
 	}
